@@ -1,0 +1,19 @@
+Task 1 – Integer Overflow
+In this task, I computed factorials using two integer types (INTEGER(4) and INTEGER(8)) until overflow occurred. 
+For INTEGER(4), overflow happened at n = 14 (the last correct value was 13! = 1932053504). 
+For INTEGER(8), overflow happened at n = 21 (the last correct value was 20! = 2432902008176640000). 
+The overflow occurs because integers have a fixed number of bits and cannot represent numbers beyond a certain size.
+
+Task 2 – Loss of Significance
+In this task, I repeatedly added very small numbers (small) to 1.0d0 until the sum no longer increased. 
+The smallest effective small was around 1.11×10⁻¹⁶, corresponding to a machine epsilon of about 2.22×10⁻¹⁶. 
+This demonstrates the finite precision of floating-point representation.
+
+Task 3 – Combined Reflection
+Integer types are limited by their fixed range — once the value exceeds the maximum, overflow occurs. 
+Real types are limited by finite precision, which causes rounding errors and loss of significance. 
+Precision loss is generally more dangerous for scientific simulations, because small rounding errors can accumulate gradually and distort results, while integer overflow usually produces immediately obvious incorrect values.
+
+Conclusion
+These experiments show how numerical representation in Fortran affects program accuracy and reliability. 
+Understanding overflow and precision loss is essential for writing stable scientific code.
