@@ -1,1 +1,7 @@
+This Fortran program processes ERA5 daily cumulative time-series data and converts them into corrected hourly incremental values. It handles the daily reset of cumulative counters and corrects data artifacts.
 
+Project Structure types.f90: Definitions of integer and real precision types. dataanalyses.f90: Modules for calculating differences and applying ERA5 correction logic. main.f90: Main program handling file.
+
+Output The program generates era5_corrected.txt with two columns: Hourly Precipitation (TP) [mm] Hourly Evaporation (E) [mm]
+
+Error Handling During execution, you may see a warning: POZOR: Chyba formatu na riadku cislo: 686 This confirms that the program successfully caught the malformed data line and applied a fallback correction (using the previous hour's value) to maintain time-series continuity.
