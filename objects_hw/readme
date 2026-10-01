@@ -1,1 +1,9 @@
+Obsah repozitára
 
+kinds.f90 — definícia zjednotených kind parametrov (rkind, ikind)
+vectors.f90 — vector2d (norm, sum) a vector3d (extends vector2d)
+shapes.f90 — abstraktný typ shape + rectangle
+polygons.f90 — right_triangle, triangle_xy, quadrangle_xy a pomocné funkcie
+solids.f90 — abstraktný typ solid + tetrahedron_xyz (volume)
+main.f90 — testovací program
+Makefile
