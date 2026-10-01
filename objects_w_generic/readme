@@ -1,1 +1,42 @@
+Súbory v projekte
 
+kinds.f90 — definície kind parametrov
+
+vectors.f90 — vector2d, vector3d
+
+shapes.f90 — abstraktný typ shape
+
+polygons.f90 — right_triangle, triangle_xy, quadrangle_xy
+
+solids.f90 — abstraktný typ solid
+
+generic_area.f90 — GENERIC interface area
+
+main.f90 — testovací program (výstup zaokrúhlený na 3 des. miesta)
+
+Vo výstupe (príklad)
+
+Vector sum result (expect 4.0 6.0): 4.000 6.000
+
+v1 norm (expect sqrt(5)) = 2.236
+
+=== Generic (compile-time) area(...) calls === area(rectangle) = 10.000 area(right_triangle) = 6.000 area(triangle_xy) = 0.500 area(quadrangle_xy) = 10.000
+
+=== Polymorphic (runtime) s%area() calls === Rectangle: area=10.000 perimeter=14.000 Right triangle: area=6.000 perimeter=12.000 Triangle_xy: area=0.500 perimeter=3.414
+
+Tetrahedron volume (expect 0.5) = 0.500
+
+Polymorphic solids(1) volume = 0.500
+
+Rozdiel: Generic vs Polymorphism
+
+Generic overloading (area(obj)):
+
+Viac procedúr zdieľa rovnaké meno (interface area).
+Kompilátor pri preklade rozhodne, ktorá konkrétna procedúra sa zavolá podľa statického (deklarovaného) typu argumentu.
+Rozhodnutie: COMPILE TIME.
+Polymorphism (class(shape), s%area()):
+
+Premenná class(shape) môže mať rôzne dynamické typy (rectangle, circle, ...).
+Implementácia sa vyberie pri behu podľa dynamického typu objektu (allocate(s, source=...)).
+Rozhodnutie: RUNTIME.
